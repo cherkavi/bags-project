@@ -1,0 +1,25 @@
+[USER_NAME]
+value='TECHNIK'
+[ORIGINAL_STRING]
+value='MPI{D*NOV12 P*001 M*022}'
+[NAME]
+value='MPI'
+[DATE]
+value='NOV12'
+[POINTS_NUMBER]
+value=001
+[MAN_NUMBER]
+value=022
+[DATA]
+max_length=11
+key11=1000681
+key10=1000681
+key9='1000681'
+key8=1000681
+key7='1000681'
+key6='1000681'
+key5='1000681'
+key4=1000681
+key3='1000681'
+key2='1000681'
+key1='1000681'

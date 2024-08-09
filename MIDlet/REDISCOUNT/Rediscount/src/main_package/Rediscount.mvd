@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MVDData version="1.3">
+    <DesignDocument designVersion="MIDP-2" uidCounter="46">
+        <DesignComponent id="$MobileDevice" typeid="MIDP:$MobileDevice" uid="0"/>
+        <DesignComponent id="$StartPoint" typeid="MIDP:$StartPoint" uid="1">
+            <Property name="targetDisplayable" value="rediscount"/>
+            <Property name="targetForwardDisplayable"/>
+        </DesignComponent>
+        <DesignComponent id="rediscount" typeid="MIDP:javax.microedition.lcdui.Form" uid="2">
+            <Property name="title" value="STRING:Rediscount"/>
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction"/>
+                <ContainerPropertyItem value="$CommandAction1"/>
+                <ContainerPropertyItem value="$CommandAction2"/>
+                <ContainerPropertyItem value="$CommandAction3"/>
+                <ContainerPropertyItem value="$CommandAction4"/>
+            </ContainerProperty>
+            <ContainerProperty name="items">
+                <ContainerPropertyItem value="textField_record"/>
+                <ContainerPropertyItem value="choiceGroup_store"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction" typeid="MIDP:CommandAction" uid="3">
+            <Property name="targetDisplayable" value="$MobileDevice"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="exitCommand"/>
+            <Property name="actionOrigin" value="rediscount"/>
+        </DesignComponent>
+        <DesignComponent id="exitCommand" typeid="MIDP:javax.microedition.lcdui.Command" uid="5">
+            <Property name="label" value="STRING:Exit"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="EXIT"/>
+        </DesignComponent>
+        <DesignComponent id="delete_command" typeid="MIDP:javax.microedition.lcdui.Command" uid="6">
+            <Property name="label" value="STRING:Delete"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction1" typeid="MIDP:CommandAction" uid="7">
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="delete_command"/>
+            <Property name="actionOrigin" value="rediscount"/>
+        </DesignComponent>
+        <DesignComponent id="add_command" typeid="MIDP:javax.microedition.lcdui.Command" uid="8">
+            <Property name="label" value="STRING:Add"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction2" typeid="MIDP:CommandAction" uid="9">
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="add_command"/>
+            <Property name="actionOrigin" value="rediscount"/>
+        </DesignComponent>
+        <DesignComponent id="list_data" typeid="MIDP:javax.microedition.lcdui.Command" uid="10">
+            <Property name="label" value="STRING:List"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction3" typeid="MIDP:CommandAction" uid="11">
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="list_data"/>
+            <Property name="actionOrigin" value="rediscount"/>
+        </DesignComponent>
+        <DesignComponent id="edit_command" typeid="MIDP:javax.microedition.lcdui.Command" uid="12">
+            <Property name="label" value="STRING:Edit"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction4" typeid="MIDP:CommandAction" uid="13">
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="edit_command"/>
+            <Property name="actionOrigin" value="rediscount"/>
+        </DesignComponent>
+        <DesignComponent id="textField_record" typeid="MIDP:javax.microedition.lcdui.TextField" uid="15">
+            <Property name="label" value="STRING:Record Add"/>
+            <Property name="maxSize" value="120"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="choiceGroup_store" typeid="MIDP:javax.microedition.lcdui.ChoiceGroup" uid="18">
+            <Property name="label" value="STRING:Enumeration store"/>
+            <Property name="choiceType" value="MULTIPLE"/>
+            <ContainerProperty name="commands"/>
+            <ContainerProperty name="elements"/>
+        </DesignComponent>
+    </DesignDocument>
+    <FlowDocument version="1.1">
+        <Node id="$MobileDevice" location="152,368" order=",$StartPoint,,,,,,,,,$ExitPoint,,,,,"/>
+        <Node id="rediscount" location="496,368" order="$CommandAction,$CommandAction1,$CommandAction2,$CommandAction3,$CommandAction4,,,,,,$Default,,,,,"/>
+        <Link id="$StartPoint$ActionLink" path="192,344,456,344"/>
+        <Link id="$CommandAction$ActionLink" path="536,360,594,360,594,405,39,405,39,344,112,344"/>
+    </FlowDocument>
+</MVDData>

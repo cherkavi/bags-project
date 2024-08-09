@@ -1,0 +1,56 @@
+
+BAGS 
+
+[“очки:]POINTS
+KOD              INTEGER 
+RAYON            VARCHAR (100)     район
+ADDRESS          VARCHAR (255)     адрес
+
+[ƒолжности]POSTS
+KOD              INTEGER
+NAME             VARCHAR (50)
+
+[Ћюди(продавцы+операторы):]PEOPLE
+KOD           INTEGER
+FAMILIYA         VARCHAR (50)
+IMYA             VARCHAR (50)
+OTCHESTVO        VARCHAR (50)     фио
+DATE_BEGIN       DATE             дата рожд
+PASSPORT         VARCHAR (20)     #паспорта
+IDENT_KOD        VARCHAR (20)     идент.Ќомер
+POST_KOD         INTEGER          должность
+
+[јссортимент] ASSORTMENT
+KOD              INTEGER
+NAME             VARCHAR (100)    наименование
+PRICE            NUMERIC (15,2)   цена
+VALID            INTEGER          действительность(весь ли продан?)
+NOTE             VARCHAR (255)    примечание
+
+[ќпераци€:] OPERATION —ловарь
+KOD              INTEGER
+NAME             VARCHAR (30)     операци€(довоз,продажа,списание,брак,забрали с точки)
+NOTE             VARCHAR (255)    примечание
+
+[“овар:]COMMODITY
+KOD              INTEGER 
+ASSORTMENT_KOD   INTEGER          код товара (јссортимент)
+QUANTITY         INTEGER          кол-во(+ или -)
+OPERATION_KOD    INTEGER          код операции (ќпераци€)
+DATE_IN_OUT      DATE             дата(прихода/ухода)
+POINT_KOD        INTEGER          номер склада (DOTS)
+SELLER           INTEGER          номер продавца (PEOPLE)
+NOTE             VARCHAR (255)    примечание
+WRITER           INTEGER          кто записал информацию (PEOPLE)
+WRITE_DATE       DATETIME         врем€ провождени€ операции
+---------------------
+склад-точка#0
+
+товар поступает только на склад
+
+приход на точки "+"
+продажа "-"
+
+-перемещение товара с точки на точку
+
+-переоценка товара

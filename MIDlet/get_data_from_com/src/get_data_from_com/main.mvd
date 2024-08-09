@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MVDData version="1.3">
+    <DesignDocument designVersion="MIDP-2" uidCounter="47">
+        <DesignComponent id="$MobileDevice" typeid="MIDP:$MobileDevice" uid="0"/>
+        <DesignComponent id="$StartPoint" typeid="MIDP:$StartPoint" uid="1">
+            <Property name="targetDisplayable" value="Controller"/>
+            <Property name="targetForwardDisplayable"/>
+        </DesignComponent>
+        <DesignComponent id="Controller" typeid="MIDP:javax.microedition.lcdui.Form" uid="2">
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction"/>
+                <ContainerPropertyItem value="$CommandAction2"/>
+            </ContainerProperty>
+            <ContainerProperty name="items">
+                <ContainerPropertyItem value="StringItem_data"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction" typeid="MIDP:CommandAction" uid="3">
+            <Property name="targetDisplayable" value="$MobileDevice"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="exitCommand"/>
+            <Property name="actionOrigin" value="Controller"/>
+        </DesignComponent>
+        <DesignComponent id="StringItem_data" typeid="MIDP:javax.microedition.lcdui.StringItem" uid="4">
+            <Property name="label" value="STRING:DataFromPort"/>
+            <Property name="text" value="STRING:\r\n"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="exitCommand" typeid="MIDP:javax.microedition.lcdui.Command" uid="5">
+            <Property name="label" value="STRING:Exit"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="EXIT"/>
+        </DesignComponent>
+        <DesignComponent id="list_menu" typeid="MIDP:javax.microedition.lcdui.List" uid="15">
+            <Property name="title" value="STRING:Menu"/>
+            <Property name="choiceType" value="IMPLICIT"/>
+            <Property name="selectCommandAction" value="$SelectCommandAction1"/>
+            <Property name="indexBasedSwitch" value="true"/>
+            <ContainerProperty name="commands"/>
+            <ContainerProperty name="elements">
+                <ContainerPropertyItem value="Midp2ListElementDC6"/>
+                <ContainerPropertyItem value="Midp2ListElementDC5"/>
+                <ContainerPropertyItem value="Midp2ListElementDC2"/>
+                <ContainerPropertyItem value="Midp2ListElementDC1"/>
+                <ContainerPropertyItem value="Midp2ListElementDC3"/>
+                <ContainerPropertyItem value="Midp2ListElementDC4"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="$SelectCommandAction1" typeid="MIDP:SelectCommandAction" uid="16">
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionOrigin" value="list_menu"/>
+        </DesignComponent>
+        <DesignComponent id="Midp2ListElementDC1" typeid="MIDP:GROUP-org.netbeans.modules.mvd.model.midp2.Midp2ListElementDC" uid="17">
+            <Property name="string" value="STRING:Open port"/>
+            <Property name="image"/>
+            <Property name="selected" value="false"/>
+            <Property name="commandAction" value="$SelectCaseCommandAction1"/>
+        </DesignComponent>
+        <DesignComponent id="$SelectCaseCommandAction1" typeid="MIDP:SelectCaseCommandAction" uid="18">
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionHolder" value="Midp2ListElementDC1"/>
+        </DesignComponent>
+        <DesignComponent id="Midp2ListElementDC2" typeid="MIDP:GROUP-org.netbeans.modules.mvd.model.midp2.Midp2ListElementDC" uid="19">
+            <Property name="string" value="STRING:Close port"/>
+            <Property name="image"/>
+            <Property name="selected" value="false"/>
+            <Property name="commandAction" value="$SelectCaseCommandAction2"/>
+        </DesignComponent>
+        <DesignComponent id="$SelectCaseCommandAction2" typeid="MIDP:SelectCaseCommandAction" uid="20">
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionHolder" value="Midp2ListElementDC2"/>
+        </DesignComponent>
+        <DesignComponent id="Midp2ListElementDC3" typeid="MIDP:GROUP-org.netbeans.modules.mvd.model.midp2.Midp2ListElementDC" uid="21">
+            <Property name="string" value="STRING:Send mail"/>
+            <Property name="image"/>
+            <Property name="selected" value="false"/>
+            <Property name="commandAction" value="$SelectCaseCommandAction3"/>
+        </DesignComponent>
+        <DesignComponent id="$SelectCaseCommandAction3" typeid="MIDP:SelectCaseCommandAction" uid="22">
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionHolder" value="Midp2ListElementDC3"/>
+        </DesignComponent>
+        <DesignComponent id="menuCommand" typeid="MIDP:javax.microedition.lcdui.Command" uid="26">
+            <Property name="label" value="STRING:Menu"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction2" typeid="MIDP:CommandAction" uid="27">
+            <Property name="targetDisplayable" value="list_menu"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="menuCommand"/>
+            <Property name="actionOrigin" value="Controller"/>
+        </DesignComponent>
+        <DesignComponent id="Midp2ListElementDC4" typeid="MIDP:GROUP-org.netbeans.modules.mvd.model.midp2.Midp2ListElementDC" uid="28">
+            <Property name="string" value="STRING:Close menu"/>
+            <Property name="image"/>
+            <Property name="selected" value="false"/>
+            <Property name="commandAction" value="$SelectCaseCommandAction4"/>
+        </DesignComponent>
+        <DesignComponent id="$SelectCaseCommandAction4" typeid="MIDP:SelectCaseCommandAction" uid="29">
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionHolder" value="Midp2ListElementDC4"/>
+        </DesignComponent>
+        <DesignComponent id="Midp2ListElementDC5" typeid="MIDP:GROUP-org.netbeans.modules.mvd.model.midp2.Midp2ListElementDC" uid="30">
+            <Property name="string" value="STRING:Delete position"/>
+            <Property name="image"/>
+            <Property name="selected" value="false"/>
+            <Property name="commandAction" value="$SelectCaseCommandAction5"/>
+        </DesignComponent>
+        <DesignComponent id="$SelectCaseCommandAction5" typeid="MIDP:SelectCaseCommandAction" uid="31">
+            <Property name="targetDisplayable" value="form_delete_position"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionHolder" value="Midp2ListElementDC5"/>
+        </DesignComponent>
+        <DesignComponent id="form_delete_position" typeid="MIDP:javax.microedition.lcdui.Form" uid="33">
+            <Property name="title" value="STRING:Delete position"/>
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction1"/>
+                <ContainerPropertyItem value="$CommandAction3"/>
+            </ContainerProperty>
+            <ContainerProperty name="items">
+                <ContainerPropertyItem value="textfield_delete_position"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="textfield_delete_position" typeid="MIDP:javax.microedition.lcdui.TextField" uid="34">
+            <Property name="label" value="STRING:Enter number for delete"/>
+            <Property name="maxSize" value="120"/>
+            <Property name="constraints" value="2"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="Command_delete" typeid="MIDP:javax.microedition.lcdui.Command" uid="35">
+            <Property name="label" value="STRING:Delete"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction1" typeid="MIDP:CommandAction" uid="36">
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="Command_delete"/>
+            <Property name="actionOrigin" value="form_delete_position"/>
+        </DesignComponent>
+        <DesignComponent id="Exit" typeid="MIDP:javax.microedition.lcdui.Command" uid="37">
+            <Property name="label" value="STRING:Exit"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="EXIT"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction3" typeid="MIDP:CommandAction" uid="38">
+            <Property name="targetDisplayable" value="list_menu"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="Exit"/>
+            <Property name="actionOrigin" value="form_delete_position"/>
+        </DesignComponent>
+        <DesignComponent id="Midp2ListElementDC6" typeid="MIDP:GROUP-org.netbeans.modules.mvd.model.midp2.Midp2ListElementDC" uid="39">
+            <Property name="string" value="STRING:Manual Enter"/>
+            <Property name="image"/>
+            <Property name="selected" value="true"/>
+            <Property name="commandAction" value="$SelectCaseCommandAction6"/>
+        </DesignComponent>
+        <DesignComponent id="$SelectCaseCommandAction6" typeid="MIDP:SelectCaseCommandAction" uid="40">
+            <Property name="targetDisplayable" value="form_manual_enter"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionHolder" value="Midp2ListElementDC6"/>
+        </DesignComponent>
+        <DesignComponent id="form_manual_enter" typeid="MIDP:javax.microedition.lcdui.Form" uid="41">
+            <Property name="title" value="STRING:Enter BarCode"/>
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction4"/>
+                <ContainerPropertyItem value="$CommandAction5"/>
+            </ContainerProperty>
+            <ContainerProperty name="items">
+                <ContainerPropertyItem value="textField1"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="Command_manual_add" typeid="MIDP:javax.microedition.lcdui.Command" uid="42">
+            <Property name="label" value="STRING:Add"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction4" typeid="MIDP:CommandAction" uid="43">
+            <Property name="targetDisplayable" value="Controller"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="Command_manual_add"/>
+            <Property name="actionOrigin" value="form_manual_enter"/>
+        </DesignComponent>
+        <DesignComponent id="Command_exit" typeid="MIDP:javax.microedition.lcdui.Command" uid="44">
+            <Property name="label" value="STRING:Exit"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="EXIT"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction5" typeid="MIDP:CommandAction" uid="45">
+            <Property name="targetDisplayable" value="list_menu"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="Command_exit"/>
+            <Property name="actionOrigin" value="form_manual_enter"/>
+        </DesignComponent>
+        <DesignComponent id="textField1" typeid="MIDP:javax.microedition.lcdui.TextField" uid="46">
+            <Property name="label" value="STRING:Manual Enter"/>
+            <Property name="maxSize" value="120"/>
+            <Property name="constraints" value="2"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+    </DesignDocument>
+    <FlowDocument version="1.1">
+        <Node id="$MobileDevice" location="160,112" order=",$StartPoint,,,,,,,,,$ExitPoint,,,,,"/>
+        <Node id="form_delete_position" location="320,504" order="$CommandAction1,$CommandAction3,,,,,,,,,$Default,,,,,"/>
+        <Node id="form_manual_enter" location="336,616" order="$CommandAction4,$CommandAction5,,,,,,,,,$Default,,,,,"/>
+        <Node id="list_menu" location="408,304" order="$SelectCaseCommandAction1,$SelectCaseCommandAction2,$SelectCaseCommandAction3,$SelectCaseCommandAction4,$SelectCaseCommandAction5,$SelectCaseCommandAction6,,,,,$Default,,,,,"/>
+        <Node id="Controller" location="184,320" order="$CommandAction,,$CommandAction2,,,,,,,,$Default,,,,,"/>
+        <Link id="$StartPoint$ActionLink" path="200,88,281,88,281,223,83,223,83,296,144,296"/>
+        <Link id="$CommandAction2$ActionLink" path="224,280,368,280"/>
+        <Link id="$SelectCaseCommandAction5$ActionLink" path="432,232,432,32,35,32,35,480,280,480"/>
+        <Link id="$CommandAction3$ActionLink" path="360,480,418,480,418,382,328,382,328,280,368,280"/>
+        <Link id="$SelectCaseCommandAction6$ActionLink" path="416,232,416,20,23,20,23,592,296,592"/>
+        <Link id="$CommandAction4$ActionLink" path="376,608,442,608,442,363,83,363,83,296,144,296"/>
+        <Link id="$CommandAction5$ActionLink" path="376,592,430,592,430,382,328,382,328,280,368,280"/>
+        <Link id="$CommandAction$ActionLink" path="224,312,297,312,297,194,47,194,47,88,120,88"/>
+    </FlowDocument>
+</MVDData>

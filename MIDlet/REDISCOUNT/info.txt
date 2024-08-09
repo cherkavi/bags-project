@@ -1,0 +1,5 @@
+
+Должен оперировать:
+  StringItem
+  ComListener
+  

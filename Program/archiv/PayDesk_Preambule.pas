@@ -1,0 +1,108 @@
+unit PayDesk_Preambule;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, dxCntner, dxEditor, dxExEdtr, dxEdLib, ExtCtrls, Grids, DBGrids,dataModule,
+  Db;
+
+type
+  TfmPayDesk_Preambule = class(TForm)
+    Panel1: TPanel;
+    combobox_points: TComboBox;
+    edit_date: TdxDateEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    GroupBox1: TGroupBox;
+    Panel2: TPanel;
+    dbGrid: TDBGrid;
+    button_input_pay: TButton;
+    DataSource1: TDataSource;
+    procedure combobox_pointsChange(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure button_input_payClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    access:dataModule.Taccess;
+    procedure load_data_to_combobox;
+    procedure show_data(point_kod,date_sale:string);
+  end;
+
+var
+  fmPayDesk_Preambule: TfmPayDesk_Preambule;
+
+implementation
+
+uses PayDesk;
+
+{$R *.DFM}
+
+{ TfmPayDesk_Preambule }
+
+procedure TfmPayDesk_Preambule.load_data_to_combobox;
+begin
+   fmDataModule.load_to_combobox_from_table_from_field(fmDataModule.query_temp,self.combobox_points,'POINTS','NAME','KOD>0','NAME');
+   self.edit_date.date:=date;
+end;
+
+procedure TfmPayDesk_Preambule.show_data(point_kod, date_sale: string);
+begin
+   fmDataModule.query_PayDesk_preambule.SQL.clear;
+   fmDataModule.query_payDesk_preambule.sql.add('SELECT DISTINCT PEOPLE.KOD,PEOPLE.FAMILIYA,PEOPLE.IMYA,PEOPLE.OTCHESTVO');
+   fmDataModule.query_payDesk_preambule.sql.add('FROM COMMODITY');
+   fmDataModule.query_payDesk_preambule.sql.add('INNER JOIN PEOPLE ON PEOPLE.KOD=COMMODITY.MAN_KOD');
+   fmDataModule.query_payDesk_preambule.sql.add('WHERE POINT_KOD='+point_kod);
+   fmDataModule.query_payDesk_preambule.sql.add('AND DATE_IN_OUT='+chr(39)+date_sale+chr(39));
+   fmDataModule.query_payDesk_preambule.open;
+end;
+
+procedure TfmPayDesk_Preambule.combobox_pointsChange(Sender: TObject);
+var
+   point_kod:string;
+begin
+   if (self.edit_date.text<>'') and (self.combobox_points.text<>'')
+   then begin
+        point_kod:=fmDataModule.get_name_by_id(fmDataModule.query_temp,'POINTS','NAME',chr(39)+self.combobox_points.text+chr(39),'KOD');
+        self.show_data(point_kod,Self.edit_date.text);
+        end;
+end;
+
+procedure TfmPayDesk_Preambule.FormShow(Sender: TObject);
+begin
+   self.load_data_to_combobox;
+end;
+
+procedure TfmPayDesk_Preambule.button_input_payClick(Sender: TObject);
+var
+   point_kod:string;
+begin
+if fmPayDesk_Preambule.dbGrid.DataSource.DataSet.FieldByName('KOD').asstring<>''
+then begin
+     fmPayDesk:=TfmPayDesk.create(self);
+     point_kod:=fmDataModule.get_name_by_id(fmDataModule.query_temp,'POINTS','NAME',chr(39)+self.combobox_points.text+chr(39),'KOD');
+     fmPayDesk.edit_point_name.text:=self.combobox_points.text;
+     fmPayDesk.Edit_Date_sale.text:=self.edit_date.Text;
+     fmPayDesk.Edit_kod.text:=self.dbGrid.DataSource.DataSet.fieldbyname('KOD').asstring;
+     fmPayDesk.Edit_seller_familiya.text:=self.dbGrid.DataSource.DataSet.fieldbyname('FAMILIYA').asstring;
+     fmPayDesk.Edit_seller_name.text:=self.dbGrid.DataSource.DataSet.fieldbyname('IMYA').asstring;
+
+     fmPayDesk.point_kod:=strtoint(point_kod);
+     fmPayDesk.man_kod:=self.dbGrid.DataSource.DataSet.fieldbyname('KOD').asinteger;
+     fmPayDesk.date_cells:=self.edit_date.Text;
+     self.access.copy_to(fmPayDesk.access);
+     fmPayDesk.showmodal;
+     self.show_data(point_kod,Self.edit_date.text);
+     freeandnil(fmPayDesk);
+     end;
+end;
+
+procedure TfmPayDesk_Preambule.FormCreate(Sender: TObject);
+begin
+   self.access:=dataModule.TAccess.create;
+end;
+
+end.
